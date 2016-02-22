@@ -61,7 +61,7 @@ public class TextBuddy {
 	private static PrintWriter writer;
 	private static Scanner reader;
 
-	enum ActionType {
+	enum Action_Type {
 		ADD_LINE, DELETE_LINE, CLEAR_FILE, DISPLAY_FILE, INVALID_COMMAND, EXIT_PROGRAM, SORT, SEARCH;
 
 	}
@@ -91,7 +91,7 @@ public class TextBuddy {
 	public static String commandExecuter(String command) {
 			String actionString = getFirstWord(command);
 			String sentence = getTextLine(command);
-			ActionType actionType = actionInterpreter(actionString);
+			Action_Type actionType = actionInterpreter(actionString);
 
 			switch (actionType) {
 				case ADD_LINE:
@@ -410,33 +410,33 @@ public class TextBuddy {
 		temporaryFile.delete();
 	}
 
-	private static ActionType actionInterpreter(String action) {
+	private static Action_Type actionInterpreter(String action) {
 		String standardisedAction = action.toLowerCase();
 
 		switch (standardisedAction) {
 			case "add":
-				return ActionType.ADD_LINE;
+				return Action_Type.ADD_LINE;
 
 			case "delete":
-				return ActionType.DELETE_LINE;
+				return Action_Type.DELETE_LINE;
 
 			case "clear":
-				return ActionType.CLEAR_FILE;
+				return Action_Type.CLEAR_FILE;
 
 			case "display":
-				return ActionType.DISPLAY_FILE;
+				return Action_Type.DISPLAY_FILE;
 
 			case "exit":
-				return ActionType.EXIT_PROGRAM;
+				return Action_Type.EXIT_PROGRAM;
 				
 			case "sort":
-				return ActionType.SORT;
+				return Action_Type.SORT;
 			
 			case "search":
-				return ActionType.SEARCH;
+				return Action_Type.SEARCH;
 
 			default:
-				return ActionType.INVALID_COMMAND;
+				return Action_Type.INVALID_COMMAND;
 
 		}
 
